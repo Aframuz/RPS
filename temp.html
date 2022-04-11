@@ -1,0 +1,182 @@
+<!-- CARDS -->
+<div class="card">
+   <div class="card-header fs-5 fw-bold fst-italic">Descripción</div>
+   <div class="card-body">
+      <div class="card-text">
+         <p class="mb-1">
+            Crear un programa que le permita a una persona jugar al cachipún
+            contra el computador, indicando cuántas veces desea jugar o repetir
+            el juego. El cachipún es un juego entre dos personas (en este caso,
+            tú y el computador) donde cada una de ellas de manera independiente
+            y secreta debe elegir una de las opciones (piedra, papel y tijera) y
+            compararla con la opción de la otra persona.
+         </p>
+      </div>
+   </div>
+   <div class="card-header fs-5 fw-bold fst-italic">Requerimientos</div>
+   <!-- Accordion -->
+   <div class="accordion accordion-flush" id="accordion">
+      <!-- Item 1 -->
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="flush-headingOne">
+            <button
+               class="accordion-button collapsed"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#flush-collapseOne"
+            ></button>
+         </h2>
+         <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion"
+         >
+            <div class="accordion-body">
+               1. Solicitar al usuario las veces que desea que se repita el
+               juego consecutivamente, es decir, cuántas veces deberá jugar
+               contra la computadora. Por cada juego, se debe mostrar el
+               resultado inmediatamente y luego pedir nuevamente una respuesta
+               dependiendo de las veces que haya indicado el usuario que desea
+               jugar.
+            </div>
+         </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+               class="accordion-button collapsed"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#flush-collapseTwo"
+            ></button>
+         </h2>
+         <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion"
+         >
+            <div class="accordion-body">
+               2. Solicitar al usuario que indique su jugada. Las opciones son
+               las siguientes:
+               <ul class="mb-0">
+                  <li>Piedra</li>
+                  <li>Papel</li>
+                  <li>Tijeras</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="flush-headingThree">
+            <button
+               class="accordion-button collapsed"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#flush-collapseThree"
+            ></button>
+         </h2>
+         <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion"
+         >
+            <div class="accordion-body">
+               3. Generar una jugada automática para la máquina usando la
+               función Math.random() de Javascript.
+            </div>
+         </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="flush-headingFour">
+            <button
+               class="accordion-button collapsed"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#flush-collapseFour"
+            ></button>
+         </h2>
+         <div
+            id="flush-collapseFour"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion"
+         >
+            <div class="accordion-body">
+               4. Definir a un ganador considerando la jugada del usuario y la
+               generada automáticamente para la máquina.
+            </div>
+         </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="flush-headingFive">
+            <button
+               class="accordion-button collapsed"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#flush-collapseFive"
+            ></button>
+         </h2>
+         <div
+            id="flush-collapseFive"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion"
+         >
+            <div class="accordion-body">
+               5. Indicar el resultado de la partida dependiendo del caso:
+               <ul class="mb-0">
+                  <li>Felicitar al ganador en caso de ser el usuario.</li>
+                  <li>
+                     Indicarle al usuario que ha perdido contra la máquina en
+                     caso de que ésta sea la que gane.
+                  </li>
+                  <li>Declarar un empate.</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- EXCERSICE -->
+<div class="row gx-4">
+   <div class="col-12 col-lg-10">
+      <h2 class="text-center">Piedra, papel o tijeras</h2>
+      <div class="container mb-5">
+         <form>
+            <span class="d-block text-center mb-2"
+               >Cuantas veces quieres jugar?</span
+            >
+            <div class="container d-flex justify-content-center mb-4">
+               <label for="numberPlays" class="visually-hidden"
+                  >Numero de juegos</label
+               >
+               <input type="number" class="form-control" id="numberPlays" />
+            </div>
+
+            <div class="container text-center">
+               <button type="submit" class="btn btn-primary btn-lg">
+                  jugar!
+               </button>
+            </div>
+         </form>
+      </div>
+
+      <div class="icons d-flex mx-4">
+         <button class="btn">
+            <img src="./assets/img/rock.png" alt="Piedra" />
+         </button>
+         <button class="btn">
+            <img src="./assets/img/paper.png" alt="Papel" />
+         </button>
+         <button class="btn">
+            <img src="./assets/img/scissors.png" alt="Tijeras" />
+         </button>
+      </div>
+   </div>
+   <div class="col-12 col-lg-2">
+      <div class="container">CHAO</div>
+   </div>
+</div>
