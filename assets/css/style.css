@@ -14,7 +14,7 @@ h1 {
 #exercises {
    max-width: 90%;
    max-height: 80vh;
-   overflow: scroll;
+   /* overflow: scroll; */
 }
 
 #exercise {
@@ -75,6 +75,27 @@ h1 {
    color: #fff;
 }
 
-#description {
-   background-color: #fff;
+#exercises {
+   height: 100vh;
+}
+
+#exercises .row {
+   height: 100%;
+}
+
+#description-1 {
+   border: 2px solid yellow;
+}
+#exercise-1 {
+   height: 100%;
+   border: 2px solid aqua;
+   color: #fff;
+}
+
+#exercise-1 .row {
+   background-color: #729e2e;
+}
+
+#exercise-1 form input {
+   max-width: 80px;
 }
