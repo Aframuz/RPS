@@ -92,11 +92,11 @@ h1 {
 }
 
 #description-1 {
-   border: 2px solid yellow;
+   /* border: 2px solid yellow; */
 }
 #exercise-1 {
    height: 100%;
-   border: 2px solid aqua;
+   /* border: 2px solid aqua; */
    color: #fff;
 }
 
@@ -114,7 +114,13 @@ h1 {
 }
 
 #table {
-   background-color: #000;
+   max-width: 100vh;
+}
+#table .container {
+   border: 1px solid #9cbb6d;
+   box-shadow: 0 0 10px #313131;
+   max-width: 100vh;
+   overflow: scroll;
 }
 
 /*=============================================
