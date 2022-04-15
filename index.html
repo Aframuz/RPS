@@ -248,22 +248,26 @@
                            method="GET"
                            class="d-flex flex-column align-items-center py-3"
                         >
-                           <label for="numPlays" class="form-label"
+                           <label for="numGames" class="form-label"
                               >¿Cuántas veces quieres jugar?</label
                            >
                            <input
                               type="number"
-                              id="numPlays"
+                              id="numGames"
                               class="form-control mb-4"
                               placeholder="0"
                            />
                            <button
-                              class="btn btn-lg text-white border border-white"
+                              id="playButton"
+                              class="btn btn-dark btn-lg text-white border border-white"
                            >
                               Jugar!
                            </button>
                         </form>
-                        <div class="text-center py-4">
+                        <div
+                           id="rps-buttons"
+                           class="text-center py-4 invisible"
+                        >
                            <img
                               class="rounded-circle"
                               src="./assets/img/rock.png"
@@ -314,6 +318,6 @@
          crossorigin="anonymous"
       ></script>
 
-      <!-- <script defer src="./assets/js/script.js"></script> -->
+      <script defer src="./assets/js/script.js"></script>
    </body>
 </html>

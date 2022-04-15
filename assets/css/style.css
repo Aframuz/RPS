@@ -152,3 +152,14 @@ h1 {
    transform: scale(0.96);
    box-shadow: 0 0 0 4px #5b7e25;
 }
+
+.invisible {
+   visibility: hidden;
+   opacity: 0;
+   transition: visibility 0s linear 500ms, opacity 500ms linear;
+}
+.visible {
+   visibility: visible !important;
+   opacity: 1 !important;
+   transition: visibility 0s linear, opacity 500ms linear;
+}
