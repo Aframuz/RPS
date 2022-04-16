@@ -44,6 +44,32 @@
       <title>Desafío Guiado - Uso de variables y operadores aritméticos</title>
    </head>
    <body>
+      <!-- Modal -->
+      <div
+         class="modal fade"
+         id="resultModal"
+         tabindex="-1"
+         aria-labelledby="resultModalLabel"
+         aria-hidden="true"
+      >
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="resultModalLabel">Resultado</h5>
+                  <button
+                     type="button"
+                     class="btn-close"
+                     data-bs-dismiss="modal"
+                     aria-label="Close"
+                  ></button>
+               </div>
+               <div class="modal-body my-2">
+                  <h1 id="modal-result" class="text-center">RESULTADO</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+
       <main>
          <!-- Modal -->
          <div class="modal fade" id="results" tabindex="-1">
@@ -269,19 +295,25 @@
                            class="text-center py-4 invisible"
                         >
                            <img
+                              data-bs-toggle="modal"
+                              data-bs-target="#resultModal"
                               class="rounded-circle"
                               src="./assets/img/rock.png"
-                              alt="Piedra"
+                              alt="piedra"
                            />
                            <img
+                              data-bs-toggle="modal"
+                              data-bs-target="#resultModal"
                               class="rounded-circle"
                               src="./assets/img/paper.png"
-                              alt="Papel"
+                              alt="papel"
                            />
                            <img
+                              data-bs-toggle="modal"
+                              data-bs-target="#resultModal"
                               class="rounded-circle"
                               src="./assets/img/scissors.png"
-                              alt="Tijeras"
+                              alt="tijeras"
                            />
                         </div>
                      </div>
