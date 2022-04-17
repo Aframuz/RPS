@@ -163,3 +163,7 @@ h1 {
    opacity: 1 !important;
    transition: visibility 0s linear, opacity 500ms linear;
 }
+
+#result-tab {
+   max-height: 500px;
+}
