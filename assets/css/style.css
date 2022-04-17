@@ -1,74 +1,49 @@
 @import url("./fonts.css");
 
-:root {
-   --button-height: 3rem;
-   --color-text: rgba(0, 0, 0, 0.25);
-   --color-text-shadow: rgba(255, 255, 255, 0.15);
-   --color-page-bg: #b9b5aa;
-   --color-bg: #899095;
-   --color-bg-light: #969da3;
-   --color-bg-dark: #7d878f;
-   --color-overlay-light: rgba(255, 255, 255, 0.2);
-   --color-overlay-medium: rgba(0, 0, 0, 0.1);
-   --color-overlay-dark: rgba(0, 0, 0, 0.2);
-   --color-tab-focus: rgba(255, 255, 255, 0.15);
-}
-
 /*=============================================
 =                   GENERAL                   =
 =============================================*/
 body {
    font-family: "UniNeue";
-   color: #729e2e;
+   color: #fff;
    background-color: #35313c;
 }
 h1 {
+   color: #729e2e;
    font-weight: 800;
 }
+
 #exercises {
    max-width: 90%;
-   /* max-height: 80vh; */
-   /* overflow: scroll; */
 }
-
-#exercise {
-   background-color: #729e2e;
-}
-
-.card-body {
-   background-color: #729e2e;
-   color: #fff;
-}
-
-.card-header {
-   color: #fff;
-   background-color: #678e29;
-}
-
+/*=============================================
+=                 DESCRIPTION                 =
+=============================================*/
+.card-body,
+.card-header,
 .accordion-button {
    background-color: #729e2e;
+}
+.accordion-body {
+   color: #729e2e;
+}
+.accordion-button {
    padding: 0.75rem 1.25rem;
 }
-
 .accordion-button:not(.collapsed) {
    background-color: #678e29;
 }
-
 .accordion-body {
    background-color: #f1f5ea;
 }
-
 .accordion-button:focus {
    border-color: #80a843;
 }
 .accordion-button:focus {
    box-shadow: 0rem 0rem 0.5rem rgba(68, 95, 28, 0.75);
 }
-
 .accordion-button {
-   color: #fff;
    border-color: #000;
-   /* border-bottom-color: #000; */
 }
 .accordion-button:not(.collapsed)::after {
    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f1f5ea'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
@@ -77,29 +52,9 @@ h1 {
    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2335313c'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-/* TESTS */
-
-#exercise {
-   color: #fff;
-}
-
-#exercises {
-   height: 100vh;
-}
-
-#exercises .row {
-   /* height: 100%; */
-}
-
-#description-1 {
-   /* border: 2px solid yellow; */
-}
-#exercise-1 {
-   height: 100%;
-   /* border: 2px solid aqua; */
-   color: #fff;
-}
-
+/*=============================================
+=                  EXERCISE                   =
+=============================================*/
 #exercise-1 .row {
    background-color: #729e2e;
 }
@@ -108,24 +63,40 @@ h1 {
    max-width: 80px;
 }
 
-#exercise-1 img {
-   width: 25%;
-   margin: 0 1rem;
-}
-
-#table {
-   max-width: 100vh;
-}
-#table .container {
-   border: 1px solid #9cbb6d;
-   box-shadow: 0 0 10px #5d8025;
-   max-width: 100vh;
-   overflow: scroll;
-}
-
 .btn {
    background-color: #5d8025;
 }
+
+.invisible {
+   visibility: hidden;
+   opacity: 0;
+   transition: visibility 0s linear 500ms, opacity 500ms linear;
+}
+.visible {
+   visibility: visible !important;
+   opacity: 1 !important;
+   transition: visibility 0s linear, opacity 500ms linear;
+}
+#exercise-1 img {
+   width: 25%;
+   margin: 0 1rem;
+   box-shadow: 0 0 3px #0b1005;
+   cursor: pointer;
+}
+#exercise-1 img:hover {
+   box-shadow: 0 0 5px #0b1005;
+}
+#exercise-1 img:active {
+   transform: scale(0.96);
+   box-shadow: 0 0 0 4px #5b7e25;
+}
+
+#result-tab {
+   max-height: 450px;
+   border: 1px solid #9cbb6d;
+   box-shadow: 0 0 10px #5d8025;
+}
+
 /*=============================================
 =                MEDIA QUERIES                =
 =============================================*/
@@ -139,31 +110,4 @@ h1 {
       width: 35%;
       margin: 0 0.5rem;
    }
-}
-
-#exercise-1 img {
-   box-shadow: 0 0 3px #0b1005;
-   cursor: pointer;
-}
-#exercise-1 img:hover {
-   box-shadow: 0 0 5px #0b1005;
-}
-#exercise-1 img:active {
-   transform: scale(0.96);
-   box-shadow: 0 0 0 4px #5b7e25;
-}
-
-.invisible {
-   visibility: hidden;
-   opacity: 0;
-   transition: visibility 0s linear 500ms, opacity 500ms linear;
-}
-.visible {
-   visibility: visible !important;
-   opacity: 1 !important;
-   transition: visibility 0s linear, opacity 500ms linear;
-}
-
-#result-tab {
-   max-height: 500px;
 }
