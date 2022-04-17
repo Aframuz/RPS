@@ -54,50 +54,33 @@ function play() {
 
    // User selecion
    const rpsButtons = document.querySelectorAll("#rps-buttons>img")
-   rpsButtons.forEach((button) => {
-      button.addEventListener("click", (_) => {
-         if (counter == numGames) {
-            rpsButtonsDiv.classList.toggle("visible")
-         }
-         counter++
 
-         const userPlay = button.alt
-         const compPlay = getComPlay()
-
-         // Decide winner
-         decideWinner(userPlay, compPlay)
-
-         // Insert result tab
-         const resutlSpan = document.createElement("span")
-         resutlSpan.classList.add("d-block")
-         resutlSpan.innerHTML = log[log.length - 1]
-         resultTab.appendChild(resutlSpan)
-      })
-   })
-   console.log("?")
-   if (counter == numGames) {
-      rpsButtons.forEach((button) => {
-         button.removeEventListener("click", (_) => {
-            if (counter == numGames) {
-               rpsButtonsDiv.classList.toggle("visible")
-            }
-            counter++
-
-            const userPlay = button.alt
-            const compPlay = getComPlay()
-
-            // Decide winner
-            decideWinner(userPlay, compPlay)
-
-            // Insert result tab
-            const resutlSpan = document.createElement("span")
-            resutlSpan.classList.add("d-block")
-            resutlSpan.innerHTML = log[log.length - 1]
-            resultTab.appendChild(resutlSpan)
+   let buttonPlay = function () {
+      if (counter == numGames) {
+         rpsButtons.forEach((button) => {
+            button.removeEventListener("click", buttonPlay)
          })
-      })
-      // rpsButtonsDiv.classList.toggle("visible")
+         rpsButtonsDiv.classList.toggle("visible")
+      }
+      counter++
+
+      const userPlay = this.alt
+      const compPlay = getComPlay()
+
+      // Decide winner
+      decideWinner(userPlay, compPlay)
+
+      // Insert result tab
+      const resutlSpan = document.createElement("span")
+      resutlSpan.classList.add("d-block")
+      resutlSpan.innerHTML = log[log.length - 1]
+      resultTab.appendChild(resutlSpan)
    }
+
+   rpsButtons.forEach((button) => {
+      button.addEventListener("click", buttonPlay)
+   })
+
    // Game counter for result tab
    gameCounter++
 }
@@ -163,5 +146,3 @@ function debounce(callback, delay) {
       timeout = setTimeout(callback, delay)
    }
 }
-
-function buttonPlay(counter, numGames) {}
