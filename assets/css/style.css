@@ -8,7 +8,8 @@ body {
    color: #fff;
    background-color: #35313c;
 }
-h1 {
+h1,
+.modal-title {
    color: #729e2e;
    font-weight: 800;
 }
