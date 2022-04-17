@@ -46,6 +46,7 @@ function play() {
    // Validate number of games
    if (!numGames) {
       console.error("Número de juegos no válido")
+      playButton.disabled = false
       return
    }
    // Result Tab Header
