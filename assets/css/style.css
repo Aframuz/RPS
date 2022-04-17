@@ -24,17 +24,18 @@ h1,
 .accordion-button {
    background-color: #729e2e;
 }
-.card-header {
+.card-header,
+.accordion-button:not(.collapsed) {
    background-color: #678e29;
+}
+.accordion-item {
+   border-color: #8eb158;
 }
 .accordion-body {
    color: #729e2e;
 }
 .accordion-button {
    padding: 0.75rem 1.25rem;
-}
-.accordion-button:not(.collapsed) {
-   background-color: #678e29;
 }
 .accordion-body {
    background-color: #f1f5ea;
@@ -89,7 +90,7 @@ h1,
 }
 
 #result-tab {
-   max-height: 450px;
+   max-height: 495px;
    border: 1px solid #9cbb6d;
    box-shadow: 0 0 10px #5d8025;
 }
