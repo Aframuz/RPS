@@ -36,6 +36,8 @@ playButton.addEventListener("click", (e) => {
 =                  FUNCTIONS                  =
 =============================================*/
 function play() {
+   // Disable playButton
+   playButton.disabled = true
    // Counter
    let counter = 1
    // Number of games
@@ -65,6 +67,8 @@ function play() {
          })
          // Hide buttons
          rpsButtonsDiv.classList.toggle("visible")
+         // Enable playButton
+         playButton.disabled = false
       }
 
       // Get user and com selections
