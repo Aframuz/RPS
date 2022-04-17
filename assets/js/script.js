@@ -2,7 +2,23 @@
 =                  VARIABLES                  =
 =============================================*/
 const playButton = document.getElementById("playButton")
+let gameCounter = 1
 let log = []
+
+/*=============================================
+=                    MODAL                    =
+=============================================*/
+var myModal = new bootstrap.Modal(document.getElementById("resultModal"), {
+   keyboard: false,
+})
+const modal = document.getElementById("resultModal")
+
+modal.addEventListener("shown.bs.modal", debounce(hideModal, 1200))
+
+function hideModal() {
+   myModal.hide()
+}
+
 /*=============================================
 =                    PLAY                     =
 =============================================*/
@@ -15,16 +31,24 @@ playButton.addEventListener("click", (e) => {
 =                  FUNCTIONS                  =
 =============================================*/
 function play() {
-   // number of games
+   // Counter
+   let counter = 1
+   // Number of games
    const numGamesInput = document.getElementById("numGames")
-   const numGames = validateNum(numGamesInput.value)
-   // validate number of games
+   let numGames = validateNum(numGamesInput.value)
+   // Validate number of games
    if (!numGames) {
       console.error("Número de juegos no válido")
       return
    }
+   // Result Tab Header
+   const resultTab = document.getElementById("result-tab")
+   const resultTabHeader = document.createElement("h6")
+   resultTabHeader.classList.add("fw-bold", "fst-italic", "border-bottom")
+   resultTabHeader.innerHTML = `Juego N° ${gameCounter}`
+   resultTab.appendChild(resultTabHeader)
 
-   // toggle visibility of rps buttons
+   // Toggle visibility of rps buttons
    const rpsButtonsDiv = document.getElementById("rps-buttons")
    rpsButtonsDiv.classList.toggle("visible")
 
@@ -32,13 +56,50 @@ function play() {
    const rpsButtons = document.querySelectorAll("#rps-buttons>img")
    rpsButtons.forEach((button) => {
       button.addEventListener("click", (_) => {
+         if (counter == numGames) {
+            rpsButtonsDiv.classList.toggle("visible")
+         }
+         counter++
+
          const userPlay = button.alt
          const compPlay = getComPlay()
 
-         // decide winner
+         // Decide winner
          decideWinner(userPlay, compPlay)
+
+         // Insert result tab
+         const resutlSpan = document.createElement("span")
+         resutlSpan.classList.add("d-block")
+         resutlSpan.innerHTML = log[log.length - 1]
+         resultTab.appendChild(resutlSpan)
       })
    })
+   console.log("?")
+   if (counter == numGames) {
+      rpsButtons.forEach((button) => {
+         button.removeEventListener("click", (_) => {
+            if (counter == numGames) {
+               rpsButtonsDiv.classList.toggle("visible")
+            }
+            counter++
+
+            const userPlay = button.alt
+            const compPlay = getComPlay()
+
+            // Decide winner
+            decideWinner(userPlay, compPlay)
+
+            // Insert result tab
+            const resutlSpan = document.createElement("span")
+            resutlSpan.classList.add("d-block")
+            resutlSpan.innerHTML = log[log.length - 1]
+            resultTab.appendChild(resutlSpan)
+         })
+      })
+      // rpsButtonsDiv.classList.toggle("visible")
+   }
+   // Game counter for result tab
+   gameCounter++
 }
 
 function validateNum(inputNum) {
@@ -93,3 +154,14 @@ function decideWinner(user, com) {
    log.push("-")
    return
 }
+
+// Delay function execution
+function debounce(callback, delay) {
+   let timeout
+   return function () {
+      clearTimeout(timeout)
+      timeout = setTimeout(callback, delay)
+   }
+}
+
+function buttonPlay(counter, numGames) {}
