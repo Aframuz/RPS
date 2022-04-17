@@ -2,6 +2,9 @@
 =                  VARIABLES                  =
 =============================================*/
 const playButton = document.getElementById("playButton")
+const resultTab = document.getElementById("result-tab")
+const rpsButtonsDiv = document.getElementById("rps-buttons")
+const rpsButtons = document.querySelectorAll("#rps-buttons>img")
 let gameCounter = 1
 let log = []
 
@@ -13,8 +16,10 @@ var myModal = new bootstrap.Modal(document.getElementById("resultModal"), {
 })
 const modal = document.getElementById("resultModal")
 
+// Automatically hide modal after 1200ms
 modal.addEventListener("shown.bs.modal", debounce(hideModal, 1200))
 
+// Hide modal function
 function hideModal() {
    myModal.hide()
 }
@@ -42,28 +47,27 @@ function play() {
       return
    }
    // Result Tab Header
-   const resultTab = document.getElementById("result-tab")
    const resultTabHeader = document.createElement("h6")
    resultTabHeader.classList.add("fw-bold", "fst-italic", "border-bottom")
    resultTabHeader.innerHTML = `Juego N° ${gameCounter}`
    resultTab.appendChild(resultTabHeader)
 
    // Toggle visibility of rps buttons
-   const rpsButtonsDiv = document.getElementById("rps-buttons")
    rpsButtonsDiv.classList.toggle("visible")
 
    // User selecion
-   const rpsButtons = document.querySelectorAll("#rps-buttons>img")
-
    let buttonPlay = function () {
+      // Count number of games played, remove EventListeners  & hide buttons if reached max
       if (counter == numGames) {
+         // Remove EventListeners
          rpsButtons.forEach((button) => {
             button.removeEventListener("click", buttonPlay)
          })
+         // Hide buttons
          rpsButtonsDiv.classList.toggle("visible")
       }
-      counter++
 
+      // Get user and com selections
       const userPlay = this.alt
       const compPlay = getComPlay()
 
@@ -75,8 +79,11 @@ function play() {
       resutlSpan.classList.add("d-block")
       resutlSpan.innerHTML = log[log.length - 1]
       resultTab.appendChild(resutlSpan)
+
+      counter++
    }
 
+   // Add EventListener to buttons
    rpsButtons.forEach((button) => {
       button.addEventListener("click", buttonPlay)
    })
@@ -85,11 +92,13 @@ function play() {
    gameCounter++
 }
 
+// Check if input is a number
 function validateNum(inputNum) {
    const regexOnlyPositiveNum = /^[1-9]\d*$/
    return regexOnlyPositiveNum.test(inputNum) ? inputNum : false
 }
 
+// Get com selection by Math.Random
 function getComPlay() {
    // Variables
    let compPlay
@@ -108,6 +117,7 @@ function getComPlay() {
    return compPlay
 }
 
+// Check winner of match, insert resutl in Modal & log result
 function decideWinner(user, com) {
    const h1Modal = document.getElementById("modal-result")
    // win
@@ -117,7 +127,7 @@ function decideWinner(user, com) {
       (user == "tijeras" && com == "papel")
    ) {
       h1Modal.textContent = "Has ganado!"
-      log.push("W")
+      log.push("Victoria")
       return
    }
 
@@ -128,13 +138,13 @@ function decideWinner(user, com) {
       (user == "tijeras" && com == "piedra")
    ) {
       h1Modal.textContent = "Has perdido"
-      log.push("L")
+      log.push("Derrota")
       return
    }
 
    // Draw
    h1Modal.textContent = "Empate"
-   log.push("-")
+   log.push("Empate")
    return
 }
 
